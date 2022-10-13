@@ -196,45 +196,12 @@ function checkStringError(input) {
 }
 
 // fun checkEmail
+
 function checkEmailError(input) {
     const reEmail =
         /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     input.value = input.value.trim()
     if (reEmail.test(input.value)) {
-        showSucess(input)
-        return false
-    }
-    return true
-}
-
-
-// FUNC CHEck lương
-function checkSalaryError(input, min, max) {
-    valueInP = parseInt(input.value)
-    if (valueInP >= min && valueInP <= max) {
-        showSucess(input)
-        return false
-    }
-    showError(input, `Lương phải từ ${min}$ - ${max}$`)
-    return true
-}
-
-// Func check giờ
-function checkTimeError(input, min, max) {
-    valueInP = parseInt(input.value)
-    if (valueInP >= min && valueInP <= max) {
-        showSucess(input)
-        return false
-    }
-    showError(input, `Số giờ làm phải từ ${min} - ${max}`)
-    return true
-}
-
-// Func checkPass
-function checkPassError(input) {
-    var rePass = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})");
-    const valueInp = input.value.trim()
-    if (rePass.test(valueInp)) {
         showSucess(input)
         return false
     }
@@ -286,11 +253,20 @@ function checkUser(user) {
 addUserbtn.addEventListener('click', function() {
     console.log(checkStringError(getName))
     console.log(checkEmailError(getEmail))
-    console.log(checkSalaryError(getPay, 1000000, 20000000))
-    console.log(checkTimeError(getTime, 80, 200))
-    console.log(checkPassError(getPass))
+        // Get close modal elements
+        // const closeModalEl = document.querySelector('#modalAdd .btn-close')
 
     let isEmpty = checkEmpty(listStaff)
+        // if (!isEmpty) {
+        //     let isCheckLenght = checkLength(getUser, 3, 6, 'User')
+        //     if (isCheckLenght) {
+        //         console.log('checkLengthFalse')
+        //     } else {
+        //         console.log('checkLengthTrue')
+        //     }
+        // } else {
+        //     console.log('sai')
+        // }
     if (!isEmpty) {
         let isCheckLenght = checkLength(getUser, 3, 6, 'User')
         if (!isCheckLenght) {

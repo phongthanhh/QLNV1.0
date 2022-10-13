@@ -196,6 +196,7 @@ function checkStringError(input) {
 }
 
 // fun checkEmail
+
 function checkEmailError(input) {
     const reEmail =
         /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
@@ -207,8 +208,6 @@ function checkEmailError(input) {
     return true
 }
 
-
-// FUNC CHEck lương
 function checkSalaryError(input, min, max) {
     valueInP = parseInt(input.value)
     if (valueInP >= min && valueInP <= max) {
@@ -216,28 +215,6 @@ function checkSalaryError(input, min, max) {
         return false
     }
     showError(input, `Lương phải từ ${min}$ - ${max}$`)
-    return true
-}
-
-// Func check giờ
-function checkTimeError(input, min, max) {
-    valueInP = parseInt(input.value)
-    if (valueInP >= min && valueInP <= max) {
-        showSucess(input)
-        return false
-    }
-    showError(input, `Số giờ làm phải từ ${min} - ${max}`)
-    return true
-}
-
-// Func checkPass
-function checkPassError(input) {
-    var rePass = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})");
-    const valueInp = input.value.trim()
-    if (rePass.test(valueInp)) {
-        showSucess(input)
-        return false
-    }
     return true
 }
 
@@ -287,8 +264,7 @@ addUserbtn.addEventListener('click', function() {
     console.log(checkStringError(getName))
     console.log(checkEmailError(getEmail))
     console.log(checkSalaryError(getPay, 1000000, 20000000))
-    console.log(checkTimeError(getTime, 80, 200))
-    console.log(checkPassError(getPass))
+
 
     let isEmpty = checkEmpty(listStaff)
     if (!isEmpty) {

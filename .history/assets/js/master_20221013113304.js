@@ -232,7 +232,7 @@ function checkTimeError(input, min, max) {
 
 // Func checkPass
 function checkPassError(input) {
-    var rePass = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})");
+    const rePass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
     const valueInp = input.value.trim()
     if (rePass.test(valueInp)) {
         showSucess(input)

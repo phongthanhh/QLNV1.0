@@ -196,6 +196,7 @@ function checkStringError(input) {
 }
 
 // fun checkEmail
+
 function checkEmailError(input) {
     const reEmail =
         /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
@@ -207,37 +208,13 @@ function checkEmailError(input) {
     return true
 }
 
-
-// FUNC CHEck lương
 function checkSalaryError(input, min, max) {
     valueInP = parseInt(input.value)
-    if (valueInP >= min && valueInP <= max) {
+    if (valueInP > min && valueInP < max) {
         showSucess(input)
         return false
     }
     showError(input, `Lương phải từ ${min}$ - ${max}$`)
-    return true
-}
-
-// Func check giờ
-function checkTimeError(input, min, max) {
-    valueInP = parseInt(input.value)
-    if (valueInP >= min && valueInP <= max) {
-        showSucess(input)
-        return false
-    }
-    showError(input, `Số giờ làm phải từ ${min} - ${max}`)
-    return true
-}
-
-// Func checkPass
-function checkPassError(input) {
-    var rePass = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})");
-    const valueInp = input.value.trim()
-    if (rePass.test(valueInp)) {
-        showSucess(input)
-        return false
-    }
     return true
 }
 
@@ -286,46 +263,56 @@ function checkUser(user) {
 addUserbtn.addEventListener('click', function() {
     console.log(checkStringError(getName))
     console.log(checkEmailError(getEmail))
-    console.log(checkSalaryError(getPay, 1000000, 20000000))
-    console.log(checkTimeError(getTime, 80, 200))
-    console.log(checkPassError(getPass))
+    console.log(checkSalaryError(getPay)))
+// Get close modal elements
+// const closeModalEl = document.querySelector('#modalAdd .btn-close')
 
-    let isEmpty = checkEmpty(listStaff)
-    if (!isEmpty) {
-        let isCheckLenght = checkLength(getUser, 3, 6, 'User')
-        if (!isCheckLenght) {
-            const userName = getUser.value.trim()
-            const name = getName.value.trim()
-            const email = getEmail.value.trim()
-            const password = getPass.value.trim()
-            const date = getDate.value
-            const posi = getPosi.value
-            const pay = getPay.value.trim()
-            const time = getTime.value.trim()
+let isEmpty = checkEmpty(listStaff)
+    // if (!isEmpty) {
+    //     let isCheckLenght = checkLength(getUser, 3, 6, 'User')
+    //     if (isCheckLenght) {
+    //         console.log('checkLengthFalse')
+    //     } else {
+    //         console.log('checkLengthTrue')
+    //     }
+    // } else {
+    //     console.log('sai')
+    // }
+if (!isEmpty) {
+    let isCheckLenght = checkLength(getUser, 3, 6, 'User')
+    if (!isCheckLenght) {
+        const userName = getUser.value.trim()
+        const name = getName.value.trim()
+        const email = getEmail.value.trim()
+        const password = getPass.value.trim()
+        const date = getDate.value
+        const posi = getPosi.value
+        const pay = getPay.value.trim()
+        const time = getTime.value.trim()
 
-            let isCheckUser = checkUser(userName)
-            if (isCheckUser) {
-                const newStaff = new Staff(userName, name, email, password, date, posi, pay, time, )
-                staffs.push(newStaff)
-                renderInfo()
-                saveData()
-                getEl('btnReset').click()
-                closeModal('modalAdd')
-                Swal.fire(
-                    'Add Success!',
-                    'Have a nice day!',
-                    'success'
-                )
-                removeActiveAdd(listStaff)
-            } else {
-                getUser.value = ''
-                showError(getUser, 'Tài khoản đã tồn tại')
-                removeActiveAdd(listStaff)
-            }
+        let isCheckUser = checkUser(userName)
+        if (isCheckUser) {
+            const newStaff = new Staff(userName, name, email, password, date, posi, pay, time, )
+            staffs.push(newStaff)
+            renderInfo()
+            saveData()
+            getEl('btnReset').click()
+            closeModal('modalAdd')
+            Swal.fire(
+                'Add Success!',
+                'Have a nice day!',
+                'success'
+            )
+            removeActiveAdd(listStaff)
+        } else {
+            getUser.value = ''
+            showError(getUser, 'Tài khoản đã tồn tại')
+            removeActiveAdd(listStaff)
         }
-    } else {
-        console.log('false')
     }
+} else {
+    console.log('false')
+}
 })
 
 // Save data local stogare

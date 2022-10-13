@@ -232,7 +232,7 @@ function checkTimeError(input, min, max) {
 
 // Func checkPass
 function checkPassError(input) {
-    var rePass = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})");
+    const rePass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
     const valueInp = input.value.trim()
     if (rePass.test(valueInp)) {
         showSucess(input)
@@ -287,8 +287,9 @@ addUserbtn.addEventListener('click', function() {
     console.log(checkStringError(getName))
     console.log(checkEmailError(getEmail))
     console.log(checkSalaryError(getPay, 1000000, 20000000))
-    console.log(checkTimeError(getTime, 80, 200))
-    console.log(checkPassError(getPass))
+    console.log(checkTime(getTime, 80, 200))
+
+    checkPass(getPass)
 
     let isEmpty = checkEmpty(listStaff)
     if (!isEmpty) {
