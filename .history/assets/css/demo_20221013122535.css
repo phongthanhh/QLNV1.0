@@ -214,10 +214,6 @@
     width: 25%;
 }
 
-.filter__rank .navbar-nav i {
-    margin-right: 5px;
-}
-
 .filter__rank__bot {
     width: 30%;
     display: flex;

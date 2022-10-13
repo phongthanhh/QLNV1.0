@@ -487,6 +487,5 @@ ranksl.onchange = function() {
 // Func Search
 
 function searchInfo() {
-    const Info = document.querySelector('.filter__rank .searchInfo').value
-    console.log(Info)
+    const Info = document.querySelector('.filter__rank .searchInfo')
 }

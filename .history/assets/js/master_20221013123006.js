@@ -490,3 +490,7 @@ function searchInfo() {
     const Info = document.querySelector('.filter__rank .searchInfo').value
     console.log(Info)
 }
+
+function abc() {
+    searchInfo()
+}

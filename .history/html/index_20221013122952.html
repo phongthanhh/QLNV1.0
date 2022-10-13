@@ -559,6 +559,7 @@
                                 <div class="nav-item d-flex align-items-center">
                                     <i class="bx bx-search fs-4 lh-0"></i>
                                     <input type="text" class="form-control border-0 shadow-none searchInfo " placeholder="Search...">
+                                    <button onclick="abc()">test</button>
                             </div>
                         </div>
 
@@ -660,445 +661,445 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="modalCenterTitle">Thêm nhân viên</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+
+                        <div class="group__form">
+                            <div class="row align-items-center ">
+                                <label class="col-sm-3 col-form-label" for="addusername">Tài khoản</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group input-group-merge gruopAdd ">
+                                        <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-user"></i></span>
+                                        <input type="text" class="form-control input__add" id="addusername">
+                                    </div>
+                                </div>
                             </div>
-                            <div class="modal-body">
-                                <form>
-
-                                    <div class="group__form">
-                                        <div class="row align-items-center ">
-                                            <label class="col-sm-3 col-form-label" for="addusername">Tài khoản</label>
-                                            <div class="col-sm-9">
-                                                <div class="input-group input-group-merge gruopAdd ">
-                                                    <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-user"></i></span>
-                                                    <input type="text" class="form-control input__add" id="addusername">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="showError">
-                                            <div class="row">
-                                                <div class="col-sm-3"></div>
-                                                <div class="showError__message col-sm-9 px-4 py-1">
-                                                </div>
-                                            </div>
-                                        </div>
+                            <div class="showError">
+                                <div class="row">
+                                    <div class="col-sm-3"></div>
+                                    <div class="showError__message col-sm-9 px-4 py-1">
                                     </div>
+                                </div>
+                            </div>
+                        </div>
 
 
-                                    <div class="group__form">
-                                        <div class="row  align-items-center">
-                                            <label class="col-sm-3 col-form-label" for="addName">Họ và tên</label>
-                                            <div class="col-sm-9">
-                                                <div class="input-group input-group-merge gruopAdd">
-                                                    <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-book-heart"></i></span>
-                                                    <input type="text" class="form-control input__add" id="addName">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="showError">
-                                            <div class="row">
-                                                <div class="col-sm-3"></div>
-                                                <div class="showError__message col-sm-9 px-4 py-1">
-                                                </div>
-                                            </div>
-                                        </div>
+                        <div class="group__form">
+                            <div class="row  align-items-center">
+                                <label class="col-sm-3 col-form-label" for="addName">Họ và tên</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group input-group-merge gruopAdd">
+                                        <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-book-heart"></i></span>
+                                        <input type="text" class="form-control input__add" id="addName">
                                     </div>
-
-
-
-                                    <div class="group__form">
-                                        <div class="row align-items-center">
-                                            <label class="col-sm-3 col-form-label" for="addEmail">Email</label>
-                                            <div class="col-sm-9">
-                                                <div class="input-group input-group-merge gruopAdd">
-                                                    <span class="input-group-text"><i class="bx bx-envelope"></i></span>
-                                                    <input type="text" id="addEmail" class="form-control input__add">
-                                                    <span id="basic-icon-default-email2" class="input-group-text">@example.com</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="showError">
-                                            <div class="row">
-                                                <div class="col-sm-3"></div>
-                                                <div class="showError__message col-sm-9 px-4 py-1">
-                                                </div>
-                                            </div>
-                                        </div>
+                                </div>
+                            </div>
+                            <div class="showError">
+                                <div class="row">
+                                    <div class="col-sm-3"></div>
+                                    <div class="showError__message col-sm-9 px-4 py-1">
                                     </div>
+                                </div>
+                            </div>
+                        </div>
 
 
-                                    <div class="group__form">
 
-                                        <div class="row align-items-center">
-                                            <label class="col-sm-3 col-form-label" for="addPassword">Mật khẩu</label>
-                                            <div class="col-sm-9">
-                                                <div class="input-group input-group-merge gruopAdd">
-                                                    <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-lock-alt"></i></span>
-                                                    <input type="password" class="form-control input__add" id="addPassword">
-                                                    <span class="input-group-text cursor-pointer iconShowP" id="basic-default-password "><i class="bx bx-hide" onclick="showPass('addPassword','modalAdd')"></i></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="showError">
-                                            <div class="row">
-                                                <div class="col-sm-3"></div>
-                                                <div class="showError__message col-sm-9 px-4 py-1">
-                                                </div>
-                                            </div>
-                                        </div>
+                        <div class="group__form">
+                            <div class="row align-items-center">
+                                <label class="col-sm-3 col-form-label" for="addEmail">Email</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group input-group-merge gruopAdd">
+                                        <span class="input-group-text"><i class="bx bx-envelope"></i></span>
+                                        <input type="text" id="addEmail" class="form-control input__add">
+                                        <span id="basic-icon-default-email2" class="input-group-text">@example.com</span>
                                     </div>
-
-
-                                    <div class="group__form">
-
-                                        <div class="row align-items-center">
-                                            <label for="addDate" class="col-md-3 col-form-label">Datetime</label>
-                                            <div class="col-md-9">
-                                                <div class="input-group input-group-merge gruopAdd addDate">
-                                                    <span id="basic-icon-default-company2" class="input-group-text"><i class="fa-regular fa-calendar"></i></span>
-                                                    <input class="form-control input__add" type="date" value="" id="addDate">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="showError">
-                                            <div class="row">
-                                                <div class="col-sm-3"></div>
-                                                <div class="showError__message col-sm-9 px-4 py-1">
-                                                </div>
-                                            </div>
-                                        </div>
+                                </div>
+                            </div>
+                            <div class="showError">
+                                <div class="row">
+                                    <div class="col-sm-3"></div>
+                                    <div class="showError__message col-sm-9 px-4 py-1">
                                     </div>
+                                </div>
+                            </div>
+                        </div>
 
-                                    <div class="group__form">
-                                        <div class="row align-items-center">
-                                            <label for="addPosi" class="form-label col-md-3 col-form-label">Chức vụ</label>
-                                            <div class="col-md-9">
-                                                <div class="input-group input-group-merge gruopAdd selectedCase">
-                                                    <span id="basic-icon-default-company2" class="input-group-text border-0 "><i class="bx bx-briefcase"></i></span>
-                                                    <select id="addPosi" class=" form-select border-left border-0 pl-0 input__add ">
+
+                        <div class="group__form">
+
+                            <div class="row align-items-center">
+                                <label class="col-sm-3 col-form-label" for="addPassword">Mật khẩu</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group input-group-merge gruopAdd">
+                                        <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-lock-alt"></i></span>
+                                        <input type="password" class="form-control input__add" id="addPassword">
+                                        <span class="input-group-text cursor-pointer iconShowP" id="basic-default-password "><i class="bx bx-hide" onclick="showPass('addPassword','modalAdd')"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="showError">
+                                <div class="row">
+                                    <div class="col-sm-3"></div>
+                                    <div class="showError__message col-sm-9 px-4 py-1">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="group__form">
+
+                            <div class="row align-items-center">
+                                <label for="addDate" class="col-md-3 col-form-label">Datetime</label>
+                                <div class="col-md-9">
+                                    <div class="input-group input-group-merge gruopAdd addDate">
+                                        <span id="basic-icon-default-company2" class="input-group-text"><i class="fa-regular fa-calendar"></i></span>
+                                        <input class="form-control input__add" type="date" value="" id="addDate">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="showError">
+                                <div class="row">
+                                    <div class="col-sm-3"></div>
+                                    <div class="showError__message col-sm-9 px-4 py-1">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="group__form">
+                            <div class="row align-items-center">
+                                <label for="addPosi" class="form-label col-md-3 col-form-label">Chức vụ</label>
+                                <div class="col-md-9">
+                                    <div class="input-group input-group-merge gruopAdd selectedCase">
+                                        <span id="basic-icon-default-company2" class="input-group-text border-0 "><i class="bx bx-briefcase"></i></span>
+                                        <select id="addPosi" class=" form-select border-left border-0 pl-0 input__add ">
 
                                                 <option value="">Chọn chức vụ</option>
                                                 <option value="1">Sếp</option>
                                                 <option value="2">Trưởng phòng</option>
                                                 <option value="3">Nhân viên</option>
                                              </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="showError">
-                                            <div class="row">
-                                                <div class="col-sm-3"></div>
-                                                <div class="showError__message col-sm-9 px-4 py-1">
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
-
-
-                                    <div class="group__form">
-                                        <div class="row align-items-center">
-                                            <label class="col-sm-3 form-label" for="addPay">Lương cơ bản</label>
-                                            <div class="col-sm-9">
-                                                <div class="input-group input-group-merge gruopAdd">
-                                                    <span id="basic-icon-default-phone2" class="input-group-text"><i class="bx bx-money"></i></i></span>
-                                                    <input type="number" id="addPay" class="form-control input__add phone-mask">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="showError">
-                                            <div class="row">
-                                                <div class="col-sm-3"></div>
-                                                <div class="showError__message col-sm-9 px-4 py-1">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="group__form">
-                                        <div class="row align-items-center">
-                                            <label class="col-sm-3 form-label" for="addTime"> Giờ làm</label>
-                                            <div class="col-sm-9">
-                                                <div class="input-group input-group-merge gruopAdd">
-                                                    <span id="" class="input-group-text"><i class="fa-regular fa-clock"></i></i></span>
-                                                    <input type="number" id="addTime" class="form-control input__add phone-mask">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="showError">
-                                            <div class="row">
-                                                <div class="col-sm-3"></div>
-                                                <div class="showError__message col-sm-9 px-4 py-1">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="row justify-content-end">
-                                    </div>
-                                    <button id="btnReset" type="reset" style="display: none">
-                                        Reset
-                                      </button>
-                                </form>
+                                </div>
                             </div>
-                            <div class="modal-footer addUserButton">
-                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Đóng</button>
-
-                                <button type="submit" id="addUserBtn" class="btn btn-primary">Thêm nhân viên</button>
-
+                            <div class="showError">
+                                <div class="row">
+                                    <div class="col-sm-3"></div>
+                                    <div class="showError__message col-sm-9 px-4 py-1">
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
 
 
-                <!-- Modal Update -->
-                <div class="modal fade" id="modalUpdate" tabindex="-1" style="display: none;" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="modalCenterTitle">Sửa nhân viên</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <div class="group__form">
+                            <div class="row align-items-center">
+                                <label class="col-sm-3 form-label" for="addPay">Lương cơ bản</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group input-group-merge gruopAdd">
+                                        <span id="basic-icon-default-phone2" class="input-group-text"><i class="bx bx-money"></i></i></span>
+                                        <input type="number" id="addPay" class="form-control input__add phone-mask">
+                                    </div>
+                                </div>
                             </div>
-                            <div class="modal-body">
-                                <form>
-
-                                    <div class="group__form">
-                                        <div class="row  align-items-center">
-                                            <label class="col-sm-3 col-form-label" for="upUser">Tài khoản</label>
-                                            <div class="col-sm-9">
-                                                <div class="input-group input-group-merge">
-                                                    <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-user"></i></span>
-                                                    <input type="text" class="form-control input__add" id="upUser" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="showError">
-                                            <div class="row">
-                                                <div class="col-sm-3"></div>
-                                                <div class="showError__message col-sm-9 px-4 py-1">
-                                                </div>
-                                            </div>
-                                        </div>
+                            <div class="showError">
+                                <div class="row">
+                                    <div class="col-sm-3"></div>
+                                    <div class="showError__message col-sm-9 px-4 py-1">
                                     </div>
+                                </div>
+                            </div>
+                        </div>
 
-                                    <div class="group__form">
-                                        <div class="row  align-items-center">
-                                            <label class="col-sm-3 col-form-label" for="upName">Họ và tên</label>
-                                            <div class="col-sm-9">
-                                                <div class="input-group input-group-merge">
-                                                    <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-book-heart"></i></span>
-                                                    <input type="text" class="form-control input__add" id="upName" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2">
-                                                </div>
-                                            </div>
-                                        </div>
 
-                                        <div class="showError">
-                                            <div class="row">
-                                                <div class="col-sm-3"></div>
-                                                <div class="showError__message col-sm-9 px-4 py-1">
-                                                </div>
-                                            </div>
-                                        </div>
+                        <div class="group__form">
+                            <div class="row align-items-center">
+                                <label class="col-sm-3 form-label" for="addTime"> Giờ làm</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group input-group-merge gruopAdd">
+                                        <span id="" class="input-group-text"><i class="fa-regular fa-clock"></i></i></span>
+                                        <input type="number" id="addTime" class="form-control input__add phone-mask">
                                     </div>
-
-
-                                    <div class="group__form">
-
-                                        <div class="row  align-items-center">
-                                            <label class="col-sm-3 col-form-label" for="upEmail">Email</label>
-                                            <div class="col-sm-9">
-                                                <div class="input-group input-group-merge">
-                                                    <span class="input-group-text"><i class="bx bx-envelope"></i></span>
-                                                    <input type="text" id="upEmail" class="form-control input__add" aria-label="john.doe" aria-describedby="basic-icon-default-email2">
-                                                    <span id="basic-icon-default-email2" class="input-group-text">@example.com</span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="showError">
-                                            <div class="row">
-                                                <div class="col-sm-3"></div>
-                                                <div class="showError__message col-sm-9 px-4 py-1">
-                                                </div>
-                                            </div>
-                                        </div>
+                                </div>
+                            </div>
+                            <div class="showError">
+                                <div class="row">
+                                    <div class="col-sm-3"></div>
+                                    <div class="showError__message col-sm-9 px-4 py-1">
                                     </div>
+                                </div>
+                            </div>
+                        </div>
 
-                                    <div class="group__form">
 
-                                        <div class="row  align-items-center">
-                                            <label class="col-sm-3 col-form-label" for="upPass">Mật khẩu</label>
-                                            <div class="col-sm-9">
-                                                <div class="input-group input-group-merge">
-                                                    <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-lock-alt"></i></span>
-                                                    <input type="password" class="form-control input__add" id="upPass" aria-describedby="basic-default-password">
-                                                    <span class="input-group-text cursor-pointer iconShowP" id="basic-default-password"><i class="bx bx-hide" onclick="showPass('upPass','modalUpdate')"></i></span>
-                                                </div>
-                                            </div>
-                                        </div>
+                        <div class="row justify-content-end">
+                        </div>
+                        <button id="btnReset" type="reset" style="display: none">
+                                        Reset
+                                      </button>
+                    </form>
+                </div>
+                <div class="modal-footer addUserButton">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Đóng</button>
 
-                                        <div class="showError">
-                                            <div class="row">
-                                                <div class="col-sm-3"></div>
-                                                <div class="showError__message col-sm-9 px-4 py-1">
-                                                </div>
-                                            </div>
-                                        </div>
+                    <button type="submit" id="addUserBtn" class="btn btn-primary">Thêm nhân viên</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal Update -->
+    <div class="modal fade" id="modalUpdate" tabindex="-1" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalCenterTitle">Sửa nhân viên</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+
+                        <div class="group__form">
+                            <div class="row  align-items-center">
+                                <label class="col-sm-3 col-form-label" for="upUser">Tài khoản</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group input-group-merge">
+                                        <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-user"></i></span>
+                                        <input type="text" class="form-control input__add" id="upUser" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2">
                                     </div>
-
-
-                                    <div class="group__form">
-
-                                        <div class="row  align-items-center">
-                                            <label for="upDate" class="col-md-3 col-form-label">Datetime</label>
-                                            <div class="col-md-9">
-                                                <div class="input-group input-group-merge addDate">
-                                                    <span id="basic-icon-default-company2" class="input-group-text"><i class="fa-regular fa-calendar"></i></span>
-                                                    <input class="form-control input__add" type="date" value="" id="upDate">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="showError">
-                                            <div class="row">
-                                                <div class="col-sm-3"></div>
-                                                <div class="showError__message col-sm-9 px-4 py-1">
-                                                </div>
-                                            </div>
-                                        </div>
+                                </div>
+                            </div>
+                            <div class="showError">
+                                <div class="row">
+                                    <div class="col-sm-3"></div>
+                                    <div class="showError__message col-sm-9 px-4 py-1">
                                     </div>
+                                </div>
+                            </div>
+                        </div>
 
-                                    <div class="group__form">
+                        <div class="group__form">
+                            <div class="row  align-items-center">
+                                <label class="col-sm-3 col-form-label" for="upName">Họ và tên</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group input-group-merge">
+                                        <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-book-heart"></i></span>
+                                        <input type="text" class="form-control input__add" id="upName" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2">
+                                    </div>
+                                </div>
+                            </div>
 
-                                        <div class="row  align-items-center">
-                                            <label for="upSelect" class="form-label col-md-3 col-form-label">Chức vụ</label>
-                                            <div class="col-md-9">
-                                                <div class="input-group input-group-merge selectedCase">
-                                                    <span id="basic-icon-default-company2" class="input-group-text border-0 "><i class="bx bx-briefcase"></i></span>
-                                                    <select id="upSelect" class="form-select border-left border-0 pl-0 input__add">
+                            <div class="showError">
+                                <div class="row">
+                                    <div class="col-sm-3"></div>
+                                    <div class="showError__message col-sm-9 px-4 py-1">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="group__form">
+
+                            <div class="row  align-items-center">
+                                <label class="col-sm-3 col-form-label" for="upEmail">Email</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group input-group-merge">
+                                        <span class="input-group-text"><i class="bx bx-envelope"></i></span>
+                                        <input type="text" id="upEmail" class="form-control input__add" aria-label="john.doe" aria-describedby="basic-icon-default-email2">
+                                        <span id="basic-icon-default-email2" class="input-group-text">@example.com</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="showError">
+                                <div class="row">
+                                    <div class="col-sm-3"></div>
+                                    <div class="showError__message col-sm-9 px-4 py-1">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="group__form">
+
+                            <div class="row  align-items-center">
+                                <label class="col-sm-3 col-form-label" for="upPass">Mật khẩu</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group input-group-merge">
+                                        <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-lock-alt"></i></span>
+                                        <input type="password" class="form-control input__add" id="upPass" aria-describedby="basic-default-password">
+                                        <span class="input-group-text cursor-pointer iconShowP" id="basic-default-password"><i class="bx bx-hide" onclick="showPass('upPass','modalUpdate')"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="showError">
+                                <div class="row">
+                                    <div class="col-sm-3"></div>
+                                    <div class="showError__message col-sm-9 px-4 py-1">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="group__form">
+
+                            <div class="row  align-items-center">
+                                <label for="upDate" class="col-md-3 col-form-label">Datetime</label>
+                                <div class="col-md-9">
+                                    <div class="input-group input-group-merge addDate">
+                                        <span id="basic-icon-default-company2" class="input-group-text"><i class="fa-regular fa-calendar"></i></span>
+                                        <input class="form-control input__add" type="date" value="" id="upDate">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="showError">
+                                <div class="row">
+                                    <div class="col-sm-3"></div>
+                                    <div class="showError__message col-sm-9 px-4 py-1">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="group__form">
+
+                            <div class="row  align-items-center">
+                                <label for="upSelect" class="form-label col-md-3 col-form-label">Chức vụ</label>
+                                <div class="col-md-9">
+                                    <div class="input-group input-group-merge selectedCase">
+                                        <span id="basic-icon-default-company2" class="input-group-text border-0 "><i class="bx bx-briefcase"></i></span>
+                                        <select id="upSelect" class="form-select border-left border-0 pl-0 input__add">
                                                     <option value="">Chọn chức vụ</option>
                                                     <option value="1">Sếp</option>
                                                     <option value="2">Trưởng phòng</option>
                                                     <option value="3">Nhân viên</option>
                                                  </select>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="showError">
-                                            <div class="row">
-                                                <div class="col-sm-3"></div>
-                                                <div class="showError__message col-sm-9 px-4 py-1">
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
-
-                                    <div class="group__form">
-
-                                        <div class="row  align-items-center">
-                                            <label class="col-sm-3 form-label" for="upPay">Lương cơ bản</label>
-                                            <div class="col-sm-9">
-                                                <div class="input-group input-group-merge">
-                                                    <span id="basic-icon-default-phone2" class="input-group-text"><i class="bx bx-money"></i></i></span>
-                                                    <input type="number" id="upPay" class="form-control input__add phone-mask" aria-label="658 799 8941" aria-describedby="basic-icon-default-phone2">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="showError">
-                                            <div class="row">
-                                                <div class="col-sm-3"></div>
-                                                <div class="showError__message col-sm-9 px-4 py-1">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="group__form">
-                                        <div class="row  align-items-center">
-                                            <label class="col-sm-3 form-label" for="upTime"> Giờ làm</label>
-                                            <div class="col-sm-9">
-                                                <div class="input-group input-group-merge">
-                                                    <span id="" class="input-group-text"><i class="fa-regular fa-clock"></i></i></span>
-                                                    <input type="number" id="upTime" class="form-control input__add phone-mask" aria-describedby="basic-icon-default-phone2">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="showError">
-                                            <div class="row">
-                                                <div class="col-sm-3"></div>
-                                                <div class="showError__message col-sm-9 px-4 py-1">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row justify-content-end">
-                                    </div>
-                                </form>
+                                </div>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
-              Đóng
-            </button>
-                                <button type="button" id="cfUpdate" class="btn btn-primary">Cập nhật</button>
+
+                            <div class="showError">
+                                <div class="row">
+                                    <div class="col-sm-3"></div>
+                                    <div class="showError__message col-sm-9 px-4 py-1">
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+
+                        <div class="group__form">
+
+                            <div class="row  align-items-center">
+                                <label class="col-sm-3 form-label" for="upPay">Lương cơ bản</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group input-group-merge">
+                                        <span id="basic-icon-default-phone2" class="input-group-text"><i class="bx bx-money"></i></i></span>
+                                        <input type="number" id="upPay" class="form-control input__add phone-mask" aria-label="658 799 8941" aria-describedby="basic-icon-default-phone2">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="showError">
+                                <div class="row">
+                                    <div class="col-sm-3"></div>
+                                    <div class="showError__message col-sm-9 px-4 py-1">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="group__form">
+                            <div class="row  align-items-center">
+                                <label class="col-sm-3 form-label" for="upTime"> Giờ làm</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group input-group-merge">
+                                        <span id="" class="input-group-text"><i class="fa-regular fa-clock"></i></i></span>
+                                        <input type="number" id="upTime" class="form-control input__add phone-mask" aria-describedby="basic-icon-default-phone2">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="showError">
+                                <div class="row">
+                                    <div class="col-sm-3"></div>
+                                    <div class="showError__message col-sm-9 px-4 py-1">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-end">
+                        </div>
+                    </form>
                 </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+              Đóng
+            </button>
+                    <button type="button" id="cfUpdate" class="btn btn-primary">Cập nhật</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                <!-- Modal Del -->
+    <!-- Modal Del -->
 
-                <div class="modal fade" id="modalDel" tabindex="-1" style="display: none;" aria-modal="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel1">Delete This </h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                Ah shit! Are you sure about that ?
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+    <div class="modal fade" id="modalDel" tabindex="-1" style="display: none;" aria-modal="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel1">Delete This </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Ah shit! Are you sure about that ?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                             Nope
                           </button>
 
-                                <button type="button" id="cfDel" class="btn btn-primary">Yesssss</button>
-                            </div>
-                        </div>
-                    </div>
+                    <button type="button" id="cfDel" class="btn btn-primary">Yesssss</button>
                 </div>
+            </div>
+        </div>
+    </div>
 
-                <!-- Core JS -->
-                <!-- build:js assets/vendor/js/core.js -->
-                <script src="../assets/vendor/libs/jquery/jquery.js"></script>
-                <script src="../assets/vendor/libs/popper/popper.js"></script>
-                <script src="../assets/vendor/js/bootstrap.js"></script>
-                <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 
-                <script src="../assets/vendor/js/menu.js"></script>
-                <!-- endbuild -->
+    <script src="../assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
 
-                <!-- Vendors JS -->
-                <script src="../assets/vendor/libs/apex-charts/apexcharts.js"></script>
+    <!-- Vendors JS -->
+    <script src="../assets/vendor/libs/apex-charts/apexcharts.js"></script>
 
-                <!-- Main JS -->
-                <script src="../assets/js/main.js"></script>
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
 
-                <!-- Page JS -->
-                <script src="../assets/js/dashboards-analytics.js"></script>
+    <!-- Page JS -->
+    <script src="../assets/js/dashboards-analytics.js"></script>
 
-                <!-- Place this tag in your head or just before your close body tag. -->
-                <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
 
-                <!-- SweetAlert -->
-                <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-                <!-- Master promax js -->
-                <script src="../assets/js/master.js"></script>
+    <!-- SweetAlert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Master promax js -->
+    <script src="../assets/js/master.js"></script>
 </body>
 
 </html>

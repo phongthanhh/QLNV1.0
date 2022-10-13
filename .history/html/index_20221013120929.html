@@ -460,12 +460,12 @@
 
                     <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
                         <!-- Search -->
-                        <!-- <div class="navbar-nav align-items-center">
+                        <div class="navbar-nav align-items-center">
                             <div class="nav-item d-flex align-items-center">
                                 <i class="bx bx-search fs-4 lh-0"></i>
                                 <input type="text" class="form-control border-0 shadow-none" placeholder="Search..." aria-label="Search..." />
                             </div>
-                        </div> -->
+                        </div>
                         <!-- /Search -->
 
                         <ul class="navbar-nav flex-row align-items-center ms-auto">
@@ -555,49 +555,51 @@
                       </div>
 
                       <div class="mb-2 filter__rank ">
-                            <div class="navbar-nav ">
+                     
+                            <div class="navbar-nav align-items-center ">
                                 <div class="nav-item d-flex align-items-center">
                                     <i class="bx bx-search fs-4 lh-0"></i>
-                                    <input type="text" class="form-control border-0 shadow-none searchInfo " placeholder="Search...">
+                                    <input type="text" class="form-control border-0 shadow-none" placeholder="Search..." aria-label="Search...">
+                                </div>
                             </div>
+                            <div class="col-sm-6 ">
+                                <div class="row">
+                                    <div class=" rank col-sm-3">
+                                        Sắp xếp theo loại
+                                     </div>
+                                     <div class="col-sm-9">
+                                         <select id="rankSelect" class="form-select ">
+                                             <option value="">Tất cả</option>
+                                             <option value="1">Xuất sắc</option>
+                                             <option value="2">Giỏi</option>
+                                             <option value="3">Khá</option>
+                                             <option value="4">Trung bình</option>
+                                           </select>
+                                     </div> 
+                                </div>
                         </div>
+                      </div>
 
-                        <div class="filter__rank__bot">
-                            <div class="rank ">
-                                Sắp xếp theo loại
-                            </div>
-                            <div class="filter__rank__bot1">
-                                <select id="rankSelect" class="form-select ">
-                                        <option value="">Tất cả</option>
-                                        <option value="1">Xuất sắc</option>
-                                        <option value="2">Giỏi</option>
-                                        <option value="3">Khá</option>
-                                        <option value="4">Trung bình</option>
-                                    </select>
-                            </div>
-                        </div>
-                    </div>
+                        <!-- Basic Bootstrap Table -->
+                        <div class="card">
+                            <!-- <h5 class="card-header">Danh sách nhân viên</h5> -->
+                            <div class="table-responsive text-nowrap">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Tài khoản</th>
+                                            <th>Họ và tên</th>
+                                            <th>Email</th>
+                                            <th>Ngày làm</th>
+                                            <th>Chức vụ</th>
+                                            <th>Tổng lương</th>
+                                            <th>Xếp loại</th>
+                                            <th>Action</th>
 
-                    <!-- Basic Bootstrap Table -->
-                    <div class="card">
-                        <!-- <h5 class="card-header">Danh sách nhân viên</h5> -->
-                        <div class="table-responsive text-nowrap">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Tài khoản</th>
-                                        <th>Họ và tên</th>
-                                        <th>Email</th>
-                                        <th>Ngày làm</th>
-                                        <th>Chức vụ</th>
-                                        <th>Tổng lương</th>
-                                        <th>Xếp loại</th>
-                                        <th>Action</th>
-
-                                    </tr>
-                                </thead>
-                                <tbody class="table-border-bottom-0 renderTable">
-                                    <!-- <tr>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="table-border-bottom-0 renderTable">
+                                        <!-- <tr>
                                             <td><strong>React Project</strong></td>
                                             <td>Barry Hunter</td>
                                             <td>demo@gmail.com</td>
@@ -612,7 +614,7 @@
                                                  </div>
                                             </td>
                                         </tr> -->
-                                </tbody>
+                                    </tbody>
                             </table>
                         </div>
                     </div>
@@ -644,22 +646,22 @@
         <!-- / Layout page -->
     </div>
 
+    
 
+                <!-- Overlay -->
+                <div class="layout-overlay layout-menu-toggle"></div>
+            </div>
+            <!-- / Layout wrapper -->
 
-    <!-- Overlay -->
-    <div class="layout-overlay layout-menu-toggle"></div>
-    </div>
-    <!-- / Layout wrapper -->
+            <!-- Modal -->
 
-    <!-- Modal -->
-
-    <!-- Model add user -->
-    <div class="modal fade" id="modalAdd" tabindex="-1" style="display: none;" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalCenterTitle">Thêm nhân viên</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <!-- Model add user -->
+                <div class="modal fade" id="modalAdd" tabindex="-1" style="display: none;" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalCenterTitle">Thêm nhân viên</h5>
+                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <form>
@@ -1002,7 +1004,7 @@
                                             <div class="col-sm-9">
                                                 <div class="input-group input-group-merge">
                                                     <span id="basic-icon-default-phone2" class="input-group-text"><i class="bx bx-money"></i></i></span>
-                                                    <input type="number" id="upPay" class="form-control input__add phone-mask" aria-label="658 799 8941" aria-describedby="basic-icon-default-phone2">
+                                                    <input type="text" id="upPay" class="form-control input__add phone-mask" aria-label="658 799 8941" aria-describedby="basic-icon-default-phone2">
                                                 </div>
                                             </div>
                                         </div>
@@ -1022,7 +1024,7 @@
                                             <div class="col-sm-9">
                                                 <div class="input-group input-group-merge">
                                                     <span id="" class="input-group-text"><i class="fa-regular fa-clock"></i></i></span>
-                                                    <input type="number" id="upTime" class="form-control input__add phone-mask" aria-describedby="basic-icon-default-phone2">
+                                                    <input type="text" id="upTime" class="form-control input__add phone-mask" aria-describedby="basic-icon-default-phone2">
                                                 </div>
                                             </div>
                                         </div>

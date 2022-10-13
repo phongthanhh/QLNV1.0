@@ -214,10 +214,6 @@
     width: 25%;
 }
 
-.filter__rank .navbar-nav i {
-    margin-right: 5px;
-}
-
 .filter__rank__bot {
     width: 30%;
     display: flex;
@@ -226,5 +222,5 @@
 
 .filter__rank__bot1 {
     flex: 1;
-    margin-left: 10px;
+    margin-left: 5px;
 }
