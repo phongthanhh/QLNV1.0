@@ -234,8 +234,7 @@
     text-align: center;
     font-size: 2rem;
     font-weight: 700;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Mono', monospace;
     color: #696cff;
-    letter-spacing: 5px;
-    /* text-transform: uppercase; */
+    text-transform: uppercase;
 }

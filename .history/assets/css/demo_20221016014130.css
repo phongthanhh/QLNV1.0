@@ -236,6 +236,5 @@
     font-weight: 700;
     font-family: 'Roboto', sans-serif;
     color: #696cff;
-    letter-spacing: 5px;
-    /* text-transform: uppercase; */
+    text-transform: uppercase;
 }
