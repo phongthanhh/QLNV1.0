@@ -1,9 +1,5 @@
-const addUserbtn = document.getElementById('addUserBtn');
-
 // function get ID
-function getEl(id) {
-    return document.getElementById(id);
-}
+const getEl = id => document.getElementById(id);
 
 // function constructor
 function Staff(userName, name, email, password, date, posi, pay, time, ) {
@@ -49,41 +45,44 @@ function Staff(userName, name, email, password, date, posi, pay, time, ) {
 }
 
 
-var staffs = []
+const staffs = []
 
-// List Input add
-const getUser = getEl('addusername');
-const getName = getEl('addName');
-const getEmail = getEl('addEmail');
-const getPass = getEl('addPassword');
-const getDate = getEl('addDate');
-const getPosi = getEl('addPosi');
-const getPay = getEl('addPay');
-const getTime = getEl('addTime');
+// TODO ------------Input add-----------------
 
-const getInputAdd = document.querySelectorAll('.gruopAdd .input__add')
-const listStaff = [getUser, getName, getEmail, getPass, getDate, getPosi, getPay, getTime];
+const userEl = getEl('addusername');
+const nameEl = getEl('addName');
+const emailEl = getEl('addEmail');
+const passEl = getEl('addPassword');
+const dateEl = getEl('addDate');
+const posiEl = getEl('addPosi');
+const payEl = getEl('addPay');
+const timeEl = getEl('addTime');
+
+const getInputAdd = document.querySelectorAll('.gruopAdd .input__add');
+
+const listStaff = [userEl, nameEl, emailEl, passEl, dateEl, posiEl, payEl, timeEl];
 
 // List Input Update
-const getUserUp = getEl('upUser');
-const getNameUp = getEl('upName');
-const getEmailUp = getEl('upEmail');
-const getPassUp = getEl('upPass');
-const getDateUp = getEl('upDate');
-const getPosiUp = getEl('upSelect');
-const getPayUp = getEl('upPay');
-const getTimeUp = getEl('upTime');
+const userUpEl = getEl('upUser');
+const nameUpEl = getEl('upName');
+const emailUpEl = getEl('upEmail');
+const passUpEl = getEl('upPass');
+const dateUpEl = getEl('upDate');
+const posiUpEl = getEl('upSelect');
+const payUpEl = getEl('upPay');
+const timeUpEl = getEl('upTime');
 
-const listStaffUp = [getUserUp, getNameUp, getEmailUp, getPassUp, getDateUp, getPosiUp, getPayUp, getTimeUp]
+// const listStaffUp = [getUserUp, getNameUp, getEmailUp, getPassUp, getDateUp, getPosiUp, getPayUp, getTimeUp]
 
 // render
-function renderInfo(data) {
+const renderInfo = data => {
     data = data || staffs;
-    let tableHtml = document.querySelector('.renderTable')
+
+    const tableHtml = document.querySelector('.renderTable')
     let htmlContent = ''
 
     data.forEach((staff, index) => {
-        let staffId = index;
+        const staffId = index;
         let posiLabel = ''
         if (staff.posi == '1') {
             posiLabel = ` <td><span class="badge bg-label-warning me-1">Sếp</span></td>`
@@ -129,214 +128,280 @@ function renderInfo(data) {
 // { /* <td class="" id="ranking">${staff.rank()}</td> */ }
 // renderInfo(staffs)
 
+// !! --------------------FUNC ALERTS!!!------------------------
 
 // Func Show error 
-function showError(input, message) {
-    let parentInput = input.closest('.input-group')
+const showError = (input, message) => {
+    // get the form-field element
+    const parentInput = input.closest('.input-group')
+
+    // Remove the true class
     parentInput.classList.remove('showTrue')
-    parentInput.classList.add('showError')
+    parentInput.classList.add('showError');
 
-    let showMessage = input.closest('.group__form').querySelector('.showError__message')
-
+    // show the error message
+    const showMessage = input.closest('.group__form').querySelector('.showError__message')
     showMessage.innerHTML = message
-}
+};
 
 
 // Func Show Success
-function showSucess(input) {
-    let parentInput = input.closest('.input-group')
+const showSucess = input => {
+    // get the form-field element
+    const parentInput = input.closest('.input-group');
+
+    // Remove the error class
     parentInput.classList.remove('showError')
     parentInput.classList.add('showTrue')
 
-    let showMessage = input.closest('.group__form').querySelector('.showError__message')
-
+    // hide the error message
+    const showMessage = input.closest('.group__form').querySelector('.showError__message')
     showMessage.innerHTML = ''
 }
 
-
-// Func check Empty
-function checkEmpty(listInput) {
-    let isEmpty = false;
-    listInput.forEach(input => {
-        input.value = input.value.trim();
-        if (!input.value) {
-            showError(input, 'Không được để trống')
-            isEmpty = true
-        } else {
-            showSucess(input)
-        }
+// func Remove class
+const removeActiveAdd = inputs => {
+    inputs.forEach(input => {
+        const parentInput = input.closest('.input-group')
+        parentInput.classList.remove('showTrue')
     })
-    return isEmpty
 }
+
+
+
+// !! -------------------Validations CHECK-------------------------
+// Func check Empty
+const isRequired = value => value === '' ? false : true;
+
 // Func check length
-function checkLength(input, min, max, message = '') {
-    let flag = false
-    input.value = input.value.trim()
-    const inputLength = input.value.length
-    if (inputLength < min) {
-        showError(input, `${message} phải lớn hơn ${min} ký tự`)
-        flag = true
-    }
-    if (inputLength > max) {
-        showError(input, `${message} phải bé hơn ${max} ký tự`)
-        flag = true
-    }
-    return flag
+const isLenghtValid = (length, min, max) => length < min || length > max ? false : true;
+
+// fun checkEmail
+const isEmailValid = email => {
+    const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    return re.test(email)
 }
 
 // fun  regex checkStringr
-function checkStringError(input) {
+const isStringValid = value => {
     const reString = /^[a-zA-Z]+$/
-    input.value = input.value.trim()
-    if (reString.test(input.value)) {
-        showSucess(input)
-        return false
-    }
-    return true
+    return reString.test(value)
 }
 
-// fun checkEmail
-function checkEmailError(input) {
-    const reEmail =
-        /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-    input.value = input.value.trim()
-    if (reEmail.test(input.value)) {
-        showSucess(input)
-        return false
-    }
-    return true
-}
+// FUNC check Salary
+const isSalaryValid = (salary, min, max) => +salary < min || +salary > max ? false : true;
 
-
-// FUNC CHEck lương
-function checkSalaryError(input, min, max) {
-    valueInP = parseInt(input.value)
-    if (valueInP >= min && valueInP <= max) {
-        showSucess(input)
-        return false
-    }
-    showError(input, `Lương phải từ ${min}$ - ${max}$`)
-    return true
-}
-
-// Func check giờ
-function checkTimeError(input, min, max) {
-    valueInP = parseInt(input.value)
-    if (valueInP >= min && valueInP <= max) {
-        showSucess(input)
-        return false
-    }
-    showError(input, `Số giờ làm phải từ ${min} - ${max}`)
-    return true
-}
+// Func check time
+const isTimeValid = (time, min, max) => +time < min || +time > max ? false : true;
 
 // Func checkPass
-function checkPassError(input) {
-    var rePass = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})");
-    const valueInp = input.value.trim()
-    if (rePass.test(valueInp)) {
-        showSucess(input)
-        return false
+const isPasswordSecure = password => {
+    //  Pass Chứa: +1 kí tự thường
+    //              + 1 kí tự hoa
+    //              + 1 số
+    //              + 1 kí tự đặc biệt
+    //              + chứa 8 kí tự trở lên
+    const re = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+    return re.test(password);
+}
+
+// fun check add
+const isCheckUser = user => {
+    let valid = true;
+    if (staffs) {
+        staffs.forEach(item => {
+            if (user === item.userName) {
+                valid = false
+            }
+        })
     }
-    return true
+    return valid
+}
+
+
+//TODO -------------------------Validations------------------------
+
+// !Check User
+const checkUser = () => {
+    let valid = false
+    const min = 3,
+        max = 25;
+    const user = userEl.value.trim();
+    if (!isRequired(user)) {
+        showError(userEl, 'User cannot be blank!')
+    } else if (!isLenghtValid(user.length, min, max)) {
+        showError(userEl, `User must between ${min} and ${max}`)
+    } else {
+        showSucess(userEl)
+        valid = true
+    }
+    return valid
+}
+
+// ! Check Name
+const checkName = () => {
+    let valid = false
+    const name = nameEl.value.trim();
+    if (!isRequired(name)) {
+        showError(nameEl, 'Name cannot be blank!')
+    } else if (!isStringValid(name)) {
+        showError(nameEl, `Name must be characters`)
+    } else {
+        showSucess(nameEl)
+        valid = true
+    }
+    return valid
+}
+
+// ! Check Email 
+const checkEmail = () => {
+    let valid = false
+
+    const email = emailEl.value.trim();
+    if (!isRequired(email)) {
+        showError(emailEl, 'Email cannot be blank!')
+    } else if (!isEmailValid(email)) {
+        showError(emailEl, 'Email invalidate')
+    } else {
+        showSucess(emailEl)
+        valid = true
+    }
+    return valid
+}
+
+// ! Check Password
+const checkPassword = () => {
+    let valid = false
+    password = passEl.value.trim();
+    if (!isRequired(password)) {
+        showError(passEl, 'Password cannot be blank!')
+    } else if (!isPasswordSecure(password)) {
+        showError(passEl, `Password must has at least 8 characters that include at least 1 lowercase character, 1 uppercase characters, 1 number, and 1 special character in (!@#$%^&*)`)
+    } else {
+        showSucess(passEl)
+        valid = true
+    }
+    return valid
+}
+
+// ! Check DateTime
+
+const checkDateTime = () => {
+    let valid = false
+    const dateTime = dateEl.value
+    if (!isRequired(dateTime)) {
+        showError(dateEl, 'DateTime cannot be blank!')
+    } else {
+        showSucess(dateEl)
+        valid = true
+    }
+    return valid
+}
+
+// !Check Posi
+
+const checkPosi = () => {
+    let valid = false
+    const posi = posiEl.value
+    if (!isRequired(posi)) {
+        showError(posiEl, 'Position invalid')
+    } else {
+        showSucess(posiEl)
+        valid = true
+    }
+    return valid
+}
+
+// !Check Pay
+const checkPay = () => {
+    let valid = false
+    const min = 1000000,
+        max = 20000000;
+    const pay = payEl.value
+    if (!isRequired(pay)) {
+        showError(payEl, 'Salary cannot be blank!')
+    } else if (!isSalaryValid(pay, min, max)) {
+        const newsMin = min.toLocaleString('en-US', {
+            style: 'currency',
+            currency: 'USD',
+            useGrouping: true,
+            maximumSignificantDigits: 3,
+        });
+        const newsMax = max.toLocaleString('en-US', {
+            style: 'currency',
+            currency: 'USD',
+            useGrouping: true,
+            maximumSignificantDigits: 3,
+        });
+        showError(payEl, `Salary must between  ${newsMin} -  ${newsMax}`)
+    } else {
+        showSucess(payEl)
+        valid = true
+    }
+    return valid
+}
+
+// ! Check Time
+const checkTime = () => {
+    let valid = false
+    const min = 80,
+        max = 200;
+    const time = timeEl.value
+    if (!isRequired(time)) {
+        showError(timeEl, 'Time cannot be blank!')
+    } else if (!isTimeValid(time, min, max)) {
+        showError(timeEl, `Time must between ${min}h - ${max}h`)
+    } else {
+        showSucess(timeEl)
+        valid = true
+    }
+    return valid
 }
 
 
 // Func oninput 
 function oninputt(listInput) {
     listInput.forEach(input => {
-        input.oninput = function() {
-            input.value = input.value.trim();
-            if (!input.value) {
-                showError(input, 'Không được để trống')
-            } else {
-                showSucess(input)
+        input.onblur = function() {
+            if (input === userEl) {
+                checkUser()
+            }
+            if (input === nameEl) {
+                checkName()
+            }
+            if (input === emailEl) {
+                checkEmail()
+            }
+            if (input === passEl) {
+                checkPassword()
+            }
+            if (input === dateEl) {
+                checkDateTime()
+            }
+            if (input === posiEl) {
+                checkPosi()
+            }
+            if (input === payEl) {
+                checkPay()
+            }
+            if (input === timeEl) {
+                checkTime()
             }
         }
     })
 }
 oninputt(listStaff)
 
-// func Remove class
-function removeActiveAdd(input) {
-    input.forEach(input => {
-        let parentInput = input.closest('.input-group')
-        parentInput.classList.remove('showTrue')
-    })
-}
 
-// fun check add
-function checkUser(user) {
-    let flag = true;
-    const localStaff = localStorage.getItem("staff");
-    //   kiểm tra tồn tại
-    if (localStaff) {
-        //   chuyển lại từ chuỗi ra array
-        const arrLocal = JSON.parse(localStaff)
-        arrLocal.forEach(item => {
-            if (user == item.userName) {
-                flag = false
-            }
-        })
-    }
-    return flag
-}
-
-// Btn Add
-addUserbtn.addEventListener('click', function() {
-    console.log(checkStringError(getName))
-    console.log(checkEmailError(getEmail))
-    console.log(checkSalaryError(getPay, 1000000, 20000000))
-    console.log(checkTimeError(getTime, 80, 200))
-    console.log(checkPassError(getPass))
-
-    let isEmpty = checkEmpty(listStaff)
-    if (!isEmpty) {
-        let isCheckLenght = checkLength(getUser, 3, 6, 'User')
-        if (!isCheckLenght) {
-            const userName = getUser.value.trim()
-            const name = getName.value.trim()
-            const email = getEmail.value.trim()
-            const password = getPass.value.trim()
-            const date = getDate.value
-            const posi = getPosi.value
-            const pay = getPay.value.trim()
-            const time = getTime.value.trim()
-
-            let isCheckUser = checkUser(userName)
-            if (isCheckUser) {
-                const newStaff = new Staff(userName, name, email, password, date, posi, pay, time, )
-                staffs.push(newStaff)
-                renderInfo()
-                saveData()
-                getEl('btnReset').click()
-                closeModal('modalAdd')
-                Swal.fire(
-                    'Add Success!',
-                    'Have a nice day!',
-                    'success'
-                )
-                removeActiveAdd(listStaff)
-            } else {
-                getUser.value = ''
-                showError(getUser, 'Tài khoản đã tồn tại')
-                removeActiveAdd(listStaff)
-            }
-        }
-    } else {
-        console.log('false')
-    }
-})
-
+// !!--------------------------------------------------------------
 // Save data local stogare
-
-function saveData() {
+const saveData = () => {
     // Chuyển staffs ==> chuỗi JSON
     localStorage.setItem("staff", JSON.stringify(staffs));
 }
 
 // function : lấy dữ liệu từ localStorage và in ra màn hình ngay khi load.
-function fetchData() {
+const fetchData = () => {
     const localStaff = localStorage.getItem("staff");
     //   kiểm tra tồn tại
     if (localStaff) {
@@ -358,26 +423,64 @@ function fetchData() {
         })
         renderInfo()
     }
-}
+};
+// Show table ngay khi load trang
 fetchData()
 
-// ShowHide Password    
-function showPass(input, parent) {
-    const getInputP = getEl(input);
-    let getIcon = document.querySelector(`#${parent} .iconShowP i`);
 
-    if (getInputP.type === 'password') {
-        getInputP.type = 'text'
-        getIcon.setAttribute('class', 'bx bx-show')
-    } else {
-        getInputP.type = 'password'
-        getIcon.setAttribute('class', 'bx bx-hide')
+// TODO -----------------ADD - UPDATE -DEL -------------------
+
+//! ADD
+const addUserbtn = document.getElementById('addUserBtn');
+
+addUserbtn.addEventListener('click', () => {
+    let isUserValid = checkUser(),
+        isNameValid = checkName(),
+        isEmailValid = checkEmail(),
+        isPassValid = checkPassword(),
+        isDateTimeValid = checkDateTime(),
+        isPosiValid = checkPosi(),
+        isPayValid = checkPay(),
+        isTimeValid = checkTime();
+
+    let isFormValid = isUserValid && isNameValid && isEmailValid && isPassValid && isDateTimeValid && isPosiValid && isPayValid && isTimeValid;
+
+    if (isFormValid) {
+        const userName = userEl.value.trim()
+        const name = nameEl.value.trim()
+        const email = emailEl.value.trim()
+        const password = passEl.value.trim()
+        const date = dateEl.value
+        const posi = posiEl.value
+        const pay = payEl.value.trim()
+        const time = timeEl.value.trim()
+
+        let isCheckUserr = isCheckUser(userName)
+        if (isCheckUserr) {
+            const newStaff = new Staff(userName, name, email, password, date, posi, pay, time, )
+            staffs.push(newStaff)
+            renderInfo()
+            saveData()
+            getEl('btnReset').click()
+            closeModal('modalAdd')
+            Swal.fire(
+                'Add Success!',
+                'Have a nice day!',
+                'success'
+            )
+            removeActiveAdd(listStaff)
+        } else {
+            // userEl.value = ''
+            showError(userEl, 'Tài khoản đã tồn tại')
+            removeActiveAdd(listStaff)
+        }
     }
-}
+})
 
-// Update 
-function editInfo(id) {
 
+//! Update 
+const editInfo = id => {
+    console.log(id)
     getEl("upUser").value = staffs[id].userName
     getEl("upName").value = staffs[id].name
     getEl("upEmail").value = staffs[id].email
@@ -390,47 +493,47 @@ function editInfo(id) {
     getEl('upUser').setAttribute("disabled", true);
 
     const cfUpdate = getEl('cfUpdate')
-    cfUpdate.addEventListener('click', () => {
-        let isEmpty = checkEmpty(listStaffUp)
-        if (!isEmpty) {
-            const upUser = getEl("upUser").value.trim()
-            const upName = getEl("upName").value.trim()
-            const upEmail = getEl("upEmail").value.trim()
-            const upPass = getEl("upPass").value.trim()
-            const upDate = getEl("upDate").value
-            const upSelect = getEl("upSelect").value
-            const upPay = getEl("upPay").value.trim()
-            const upTime = getEl("upTime").value.trim()
+        // cfUpdate.addEventListener('click', () => {
+        //     let isEmpty = checkEmpty(listStaffUp)
+        //     if (!isEmpty) {
+        //         const upUser = getEl("upUser").value.trim()
+        //         const upName = getEl("upName").value.trim()
+        //         const upEmail = getEl("upEmail").value.trim()
+        //         const upPass = getEl("upPass").value.trim()
+        //         const upDate = getEl("upDate").value
+        //         const upSelect = getEl("upSelect").value
+        //         const upPay = getEl("upPay").value.trim()
+        //         const upTime = getEl("upTime").value.trim()
 
-            const newUpdate = new Staff(
-                upUser,
-                upName,
-                upEmail,
-                upPass,
-                upDate,
-                upSelect,
-                upPay,
-                upTime
-            )
-            staffs[id] = newUpdate
-            renderInfo()
-            saveData()
-            closeModal('modalUpdate')
-            Swal.fire(
-                'Update Success!',
-                'Have a nice day!',
-                'success'
-            )
-        } else {
-            console.log('false')
-        }
+    //         const newUpdate = new Staff(
+    //             upUser,
+    //             upName,
+    //             upEmail,
+    //             upPass,
+    //             upDate,
+    //             upSelect,
+    //             upPay,
+    //             upTime
+    //         )
+    //         staffs[id] = newUpdate
+    //         renderInfo()
+    //         saveData()
+    //         closeModal('modalUpdate')
+    //         Swal.fire(
+    //             'Update Success!',
+    //             'Have a nice day!',
+    //             'success'
+    //         )
+    //     } else {
+    //         console.log('false')
+    //     }
 
-    })
+    // })
 
 }
 
-// Del value
-function delInfo(id) {
+//! Del value
+const delInfo = id => {
     const cfDel = getEl('cfDel')
     cfDel.addEventListener('click', () => {
 
@@ -446,15 +549,31 @@ function delInfo(id) {
     })
 }
 
-
+//TODO ------------------Linh tinh----------------------
 //  function close Modal
-function closeModal(id) {
+const closeModal = id => {
     document.querySelector(`#${id} .btn-close `).click()
 }
 
+// ShowHide Password    
+const showPass = (input, parent) => {
+    const getInputP = getEl(input);
+    let getIcon = document.querySelector(`#${parent} .iconShowP i`);
+
+    if (getInputP.type === 'password') {
+        getInputP.type = 'text'
+        getIcon.setAttribute('class', 'bx bx-show')
+    } else {
+        getInputP.type = 'password'
+        getIcon.setAttribute('class', 'bx bx-hide')
+    }
+}
+
+
+// TODO----------------------------------
 // Func Sắp xếp rank
 const ranksl = getEl('rankSelect')
-ranksl.onchange = function() {
+ranksl.onchange = () => {
     let rankValue = ranksl.value;
     //   kiểm tra tồn tại
     var result = staffs.filter(item => {
@@ -486,7 +605,14 @@ ranksl.onchange = function() {
 
 // Func Search
 
-function searchInfo() {
-    const Info = document.querySelector('.filter__rank .searchInfo').value
-    console.log(Info)
+const searchInput = document.querySelector('.filter__rank .searchInfo')
+searchInput.oninput = () => searchInfo()
+
+const searchInfo = () => {
+    const InfoSearch = document.querySelector('.filter__rank .searchInfo').value
+    Info = InfoSearch.trim()
+    const result = staffs.filter(value => {
+        return value.userName.toUpperCase().includes(Info.toUpperCase())
+    })
+    renderInfo(result)
 }
